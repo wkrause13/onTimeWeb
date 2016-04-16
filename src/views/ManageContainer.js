@@ -3,10 +3,6 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 
 const mapStateToProps = (state) => ({ auth:state.auth })
-const mapDispatchToProps= (dispatch) => ({
-  onIncrement(){dispatch({ type: 'INCREMENT' })},
-  onDecrement(){dispatch({ type: 'DECREMENT' })}
-})
 
 const Manage = React.createClass({
   render (){
@@ -31,4 +27,4 @@ const styles = {
     flexDirection: 'row'
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Manage)
+export default connect(mapStateToProps)(Manage)
