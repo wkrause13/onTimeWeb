@@ -27,11 +27,14 @@
     "firebase": "^2.4.2",
     "immutable": "^3.7.6",
     "isomorphic-fetch": "^2.2.1",
+    "moment": "^2.12.0",
     "react": "^0.14.8",
+    "react-datetime": "^2.1.0",
     "react-dom": "^0.14.8",
     "react-redux": "^4.4.1",
     "react-router": "^2.0.1",
     "redux": "^3.3.1",
+    "redux-form": "^5.0.1",
     "redux-thunk": "^2.0.1"
   }
 }
