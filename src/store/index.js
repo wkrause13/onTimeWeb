@@ -1,14 +1,12 @@
 import {applyMiddleware, createStore, combineReducers } from 'redux'
 import authReducer from './authReducer'
-import counterReducer from './counterReducer'
 import thunk from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form';
 
 
 const reducer = combineReducers({
 	auth: authReducer,
-	counter: counterReducer,
-  form: formReducer
+	counter: counterReducer
 })
 
 

@@ -18,7 +18,7 @@ const Login = React.createClass({
   componentDidUpdate(){
     const {status} = this.props.auth
     if(status==='LOGGED_IN'){
-      browserHistory.push('/dashboard')
+      browserHistory.push('/register')
     }
   },
   render (){

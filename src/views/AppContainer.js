@@ -3,7 +3,7 @@ import {Link} from 'react-router'
 import { connect } from 'react-redux'
 import actions from '../actions'
 
-const navMsg = ['Dashboard','Register']
+const navMsg = ['Register a cc ', 'Schedule a meeting', 'Manage your attendees']
 
 const mapStateToProps = (state) => ({ auth:state.auth })
 const mapDispatchToProps= (dispatch) => ({logoutUser(){
@@ -17,10 +17,13 @@ const App = React.createClass({
     let backMsg, fwdMsg, fwd, back
     const {pathname}= this.props.location
     const {childRoutes} = this.props.route
+    console.log(pathname,childRoutes)
     switch (pathname) {
-      case '/dashboard': fwdMsg=navMsg[1], fwd=childRoutes[1].path
+      case '/register': fwdMsg=navMsg[1], fwd=childRoutes[1].path
         break
-      case '/register': backMsg=navMsg[0], back=childRoutes[0].path
+      case '/schedule': backMsg=navMsg[0], back=childRoutes[0].path, fwdMsg=navMsg[2], fwd = childRoutes[2].path
+        break
+      case '/manage': backMsg=navMsg[1], back=childRoutes[1].path
         break
     }
 
