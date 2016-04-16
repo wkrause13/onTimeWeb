@@ -20,7 +20,7 @@ const App = React.createClass({
     switch (pathname) {
       case '/dashboard': fwdMsg=navMsg[1], fwd=childRoutes[1].path
         break
-      case '/regist': backMsg=navMsg[0], back=childRoutes[0].path
+      case '/register': backMsg=navMsg[0], back=childRoutes[0].path
         break
     }
 
