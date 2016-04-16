@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-// import AdminForm from './AdminForm';
+import { Link } from 'react-router'
+import AdminForm from './AdminFormContainer';
 
 const mapStateToProps = (state) => ({counter: state.counter })
 const mapDispatchToProps= (dispatch) => ({
@@ -15,12 +16,7 @@ const Dashboard = React.createClass({
 
     return(
       <div className='is-flex' style={styles.container}>
-        <p   style={styles.text}>{counter}</p>
-        // <AdminForm />
-        // <p >
-        //   <button className="button is-large is-success" onClick={onIncrement}>+</button> &nbsp;
-        //   <button className="button is-large is-danger" onClick={onDecrement} >-</button>
-        // </p>
+        <Link className="button is-success" to={`/adminform`}>Create Meeting</Link>
       </div>
     )
   }

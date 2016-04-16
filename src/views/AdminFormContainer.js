@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import AdminForm from '../components/AdminForm';
 
-class AdminForm extends Component {
+class AdminFormContainer extends Component {
   render() {
     return (
-      <div>
-        <p> Test </p>
-      </div>
+      <AdminForm />
     );
   }
 }
@@ -13,4 +12,4 @@ class AdminForm extends Component {
 //   devices: React.PropTypes.instanceOf(List).isRequired,
 // };
 
-export default AdminForm;
+export default AdminFormContainer;
