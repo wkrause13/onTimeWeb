@@ -7,6 +7,7 @@ import AppContainer from './views/AppContainer'
 import DashboardContainer from './views/DashboardContainer'
 import RegisterContainer from './views/RegisterContainer'
 import LoginContainer from './views/LoginContainer'
+import AdminFormContainer from './views/AdminFormContainer'
 import fourZerofour from './views/404'
 import actions from './actions'
 import store from './store'
@@ -20,6 +21,8 @@ const routes =(
     <Route component={AppContainer} onEnter={requireAuth}>
       <Route path="/dashboard"  component={DashboardContainer}/>
       <Route path="/register" component={RegisterContainer} />
+      <Route path="/settings" component={SettingsContainer} />
+      <Route path="/adminform" component={AdminFormContainer} />
     </Route>
     <Route path='*' component={fourZerofour}/>
   </Router>
