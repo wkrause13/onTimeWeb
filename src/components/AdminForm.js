@@ -2,36 +2,66 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form'
 import Datetime from 'react-datetime';
 
-export const fields = [ 'firstName'];
+export const fields = ['startTime', 'gracePeriod'];
 
 
 class AdminForm extends Component {
+  
+  handleStartDateChange(startDate) {
+    var {endDate} = this.props.fields
+    if (endDate.value == null || endDate.value < startDate) {
+      endDate.onChange(startDate)
+    }
+  }
   render() {
     const {
-      fields: { firstName },
+      fields: { time, gracePeriod },
       handleSubmit,
       resetForm,
-      submitting
+      submitting,
+      startTime,
+      handleStartTimeChange
       } = this.props
     return (
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>First Name</label>
+        <div className="control">
+          <Datetime
+          inputProps={{className: "input", placeholder: "Date"}}
+          value={startTime}
+          onChange={ handleStartTimeChange }
+          />
+        </div>
+        <div className="control">
           <div>
-            <input type="text" placeholder="First Name" {...firstName}/>
+            <input className={(gracePeriod.error && gracePeriod.touched)  ? "input is-danger" : "input"} type="text" placeholder="Grace Period (Minutes)" {...gracePeriod}/>
+          </div>
+          <div className="text-help">
+            { gracePeriod.touched ? gracePeriod.error : null }
           </div>
         </div>
         <div>
-          <button type="submit" disabled={submitting}>
+          <button className="button is-primary" type="submit" disabled={submitting}>
             {submitting ? <i/> : <i/>} Submit
           </button>
-          <button type="button" disabled={submitting} onClick={resetForm}>
+          <button className="button is-danger" type="button" disabled={submitting} onClick={resetForm}>
             Clear Values
           </button>
         </div>
       </form>
     );
   }
+}
+
+function validate(values) {
+  const errors = {};
+  if (!values.gracePeriod ) {
+    errors.gracePeriod = 'Enter a grace period';
+  }
+  if (values.gracePeriod % 1 != 0 ) {
+     errors.gracePeriod = 'Must be a number';
+  }
+  
+  return errors;
 }
 
 AdminForm.propTypes = {
@@ -42,8 +72,9 @@ AdminForm.propTypes = {
 }
 
 export default reduxForm({
-  form: 'simple',
-  fields
+  form: 'ScheduleMeetingForm',
+  fields,
+  validate
 })(AdminForm)
 
 // export default AdminForm;

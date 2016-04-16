@@ -9,7 +9,6 @@ const mapDispatchToProps= (dispatch) => ({
 })
 
 const Manage = React.createClass({
-  console.log(this.props.auth)
   render (){
     const {counter,onIncrement,onDecrement } = this.props
 
