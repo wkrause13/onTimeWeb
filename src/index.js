@@ -21,7 +21,6 @@ const routes =(
     <Route component={AppContainer} onEnter={requireAuth}>
       <Route path="/dashboard"  component={DashboardContainer}/>
       <Route path="/register" component={RegisterContainer} />
-      <Route path="/settings" component={SettingsContainer} />
       <Route path="/adminform" component={AdminFormContainer} />
     </Route>
     <Route path='*' component={fourZerofour}/>

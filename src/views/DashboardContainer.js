@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import AdminForm from '../components/AdminForm'
 import { Link } from 'react-router'
-import AdminForm from './AdminFormContainer';
 
 const mapStateToProps = (state) => ({counter: state.counter })
 const mapDispatchToProps= (dispatch) => ({
