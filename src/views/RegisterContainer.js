@@ -5,7 +5,7 @@ export default React.createClass({
   render (){
     return(
       <div  className='is-flex' style={settings}>
-
+      <p className='subtitle is-3 is-text-centered'>Regists</p>
       <p className="control has-icon">
         <input className="input" type="email" placeholder="Current Username"/>
         <i className="fa fa-user"></i>

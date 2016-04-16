@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import AppContainer from './views/AppContainer'
 import DashboardContainer from './views/DashboardContainer'
-import SettingsContainer from './views/SettingsContainer'
+import RegisterContainer from './views/RegisterContainer'
 import LoginContainer from './views/LoginContainer'
 import fourZerofour from './views/404'
 import actions from './actions'
@@ -19,7 +19,7 @@ const routes =(
     <Route path="/" component={LoginContainer} onEnter={redirect}/>
     <Route component={AppContainer} onEnter={requireAuth}>
       <Route path="/dashboard"  component={DashboardContainer}/>
-      <Route path="/settings" component={SettingsContainer} />
+      <Route path="/register" component={RegisterContainer} />
     </Route>
     <Route path='*' component={fourZerofour}/>
   </Router>
