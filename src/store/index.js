@@ -6,7 +6,6 @@ import {reducer as formReducer} from 'redux-form';
 
 const reducer = combineReducers({
 	auth: authReducer,
-	counter: counterReducer,
   form: formReducer
 })
 
