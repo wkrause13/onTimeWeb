@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form'
 import Datetime from 'react-datetime';
-import MeetingList from './MeetingsList';
-// import DatePicker from 'react-datepicker';
 
 export const fields = ['startDate','time', 'gracePeriod', 'amount'];
 
@@ -83,7 +81,7 @@ function validate(values) {
   if (values.gracePeriod % 1 != 0 ) {
      errors.gracePeriod = 'Must be a number';
   }
-  
+
   return errors;
 }
 

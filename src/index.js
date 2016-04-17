@@ -10,7 +10,7 @@ import ScheduleContainer from './views/ScheduleContainer'
 import ManageContainer from './views/ManageContainer'
 import ConfirmContainer from './views/ConfirmContainer'
 import StatusContainer from './views/StatusContainer'
-import MeetingsList from './components/MeetingsList'
+import MeetingsList from './views/MeetingsContainer'
 
 import fourZerofour from './views/404'
 import actions from './actions'
