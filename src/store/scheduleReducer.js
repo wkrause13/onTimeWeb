@@ -12,7 +12,6 @@ export default (state = {
       console.log(action.payload);
       return state;
     case CHANGE_START:
-      console.log(action.payload.toDate());
       return Object.assign({}, state, {
         startTime: action.payload.toDate()
       });

@@ -2,7 +2,10 @@ import {
   REQUEST_SCHEDULE_SUBMIT,
   RECIEVE_SCHEDULE_SUBMIT,
   CHANGE_START,
+  CLEAR_SCHEDULE_FORM
 } from './types';
+
+import {change} from 'redux-form';
 
 import fetch from 'isomorphic-fetch';
 
@@ -37,6 +40,17 @@ export function changeStartTimeChange(time){
     receivedAt: Date.now(),
   };
 }
+
+export function clearSchedule(){
+  return (dispatch) => {
+    dispatch(change('ScheduleMeetingForm','amount',''));
+    dispatch(change('ScheduleMeetingForm','startDate',new Date()  ));
+    dispatch(change('ScheduleMeetingForm','time',''));
+    dispatch(change('ScheduleMeetingForm','gracePeriod',''));
+
+  }
+}
+
 
 export function submitSchedule(props) {
   return (dispatch) => {

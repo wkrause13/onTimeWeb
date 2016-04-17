@@ -14,16 +14,21 @@ class AdminFormContainer extends Component {
     this.props.submitSchedule(props);
   }
   handleStartTimeChange(date){
-    console.log(this.props.scheduleForm);
     this.props.changeStartTimeChange(date);
   }
   render() {
+    const myInitialValues = {
+      initialValues: {
+        startDate: new Date()
+      }
+    }
     return (
       <div>
         <AdminForm
           onSubmit={this.handleSubmit}
           handleStartTimeChange={this.handleStartTimeChange}
-          startTime={this.props.scheduleForm.startTime}
+          clearSchedule={this.props.clearSchedule}
+          {...myInitialValues}
         />
         { this.props.scheduleMeetingForm ? this.props.scheduleMeetingForm.fullName : ''}
       </div>
