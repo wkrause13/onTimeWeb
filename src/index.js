@@ -74,7 +74,7 @@ function redirect(nextState, replace) {
 
 const Index = React.createClass({
   componentWillMount(){
-    console.log(actions)
+
     store.dispatch(actions.listenToAuth())
     store.dispatch(actions.setState())
     store.dispatch(actions.ownerCheck())

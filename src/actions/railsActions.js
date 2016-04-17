@@ -9,6 +9,11 @@ const railsActions = {
       dispatch({type: 'CHECKED_IN'})
     }
   },
+  onPenalize(){
+    return (dispatch) =>{
+      dispatch({type: 'PENALIZE'})
+    }
+  },
   ownerCheck(){
     return (dispatch, getState) =>{
       const {owner_id, current_id}= getState().rails

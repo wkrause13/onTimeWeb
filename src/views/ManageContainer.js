@@ -13,7 +13,6 @@ const mapDispatchToProps= (dispatch) => ({checkIn(){
 const Manage = React.createClass({
   render (){
 
-    // console.log(this.props)
     return(
       <div className='is-flex' style={styles.container}>
         <div>

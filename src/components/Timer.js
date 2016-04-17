@@ -1,4 +1,7 @@
 import React from 'react'
+import * as actions from '../actions'
+import {connect} from 'react-redux'
+
 
 let SecondsTohhmmss = function(totalSeconds) {
   let hours   = Math.floor(totalSeconds / 3600);
@@ -6,7 +9,7 @@ let SecondsTohhmmss = function(totalSeconds) {
   let seconds = totalSeconds - (hours * 3600) - (minutes * 60);
 
   // round seconds
-  seconds = Math.round(seconds * 100) / 100
+  seconds = Math.round(seconds)
 
   let result = (hours < 10 ? "0" + hours : hours);
       result += ":" + (minutes < 10 ? "0" + minutes : minutes);
@@ -14,11 +17,12 @@ let SecondsTohhmmss = function(totalSeconds) {
   return result;
 }
 
+const period = 3000
 
 export default React.createClass({
   getInitialState: function(){
       return {
-        clock: 0,
+        clock: period,
         time: ''
       }
    },
@@ -54,10 +58,18 @@ export default React.createClass({
    **/
    update: function() {
      let clock = this.state.clock;
-     clock += this.calculateOffset();
+     clock -= this.calculateOffset();
      this.setState({clock: clock });
      let time = SecondsTohhmmss(clock / 1000);
+     if(time==='0-1:59:60'){
+       console.log('times up!')
+       time = '00:00:00'
+       this.pause()
+       this.props.onPenalize()
+       return
+     }
      this.setState({time: time });
+
    },
    /**
     * Calculate the offset time.
@@ -75,8 +87,6 @@ export default React.createClass({
      this.pause();
    },
    render: function(){
-
-
      let secondsStyles = {
        fontSize: 80,
      };

@@ -4,9 +4,10 @@ export default (state={}, action) => {
       return {
         confirmed:  true,
         checkedin:  false,
-        owner_id: 2,
+        owner_id: 1,
         current_id: 2,
-        isOwner: false
+        isOwner: false,
+        penalize: false
       }
     case 'CHECKED_IN':
       return {
@@ -15,6 +16,10 @@ export default (state={}, action) => {
     case 'OWNER_SET':
       return {
         isOwner:  true,
+      }
+    case 'PENALIZE':
+      return {
+        penalize:  true,
       }
 
   }

@@ -23,7 +23,6 @@ const App = React.createClass({
     let backMsg, fwdMsg, fwd, back
     const {pathname}= this.props.location
     const {childRoutes} = this.props.route
-    console.log(isOwner)
     switch (pathname) {
       case '/register':
         if(isOwner){
@@ -78,7 +77,8 @@ const App = React.createClass({
 const styles = {
   app:{
     flexDirection: 'column',
-    height: '80vh'
+    height: '100vh',
+    flex: 1
   },
   nav:{
     alignItems:'center',
@@ -91,6 +91,7 @@ const styles = {
     flex:10,
     alignItems:'center',
     justifyContent:'center',
+    flexDirection: 'column'
   },
   userLogout:{
     flexDirection:'row',
