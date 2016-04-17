@@ -10,6 +10,8 @@ import ScheduleContainer from './views/ScheduleContainer'
 import ManageContainer from './views/ManageContainer'
 import ConfirmContainer from './views/ConfirmContainer'
 import StatusContainer from './views/StatusContainer'
+import MeetingsList from './components/MeetingsList'
+
 import fourZerofour from './views/404'
 import actions from './actions'
 import store from './store'
@@ -28,6 +30,7 @@ const routes =(
       <Route path="/manage"  component={ManageContainer} />
       <Route path="/confirm"  component={ConfirmContainer}/>
       <Route path="/status"  component={StatusContainer}/>
+      <Route path="/meetings"  component={MeetingsList}/>
     </Route>
 
 
