@@ -8,7 +8,7 @@ import {reducer as formReducer} from 'redux-form';
 const reducer = combineReducers({
 	auth: authReducer,
   form: formReducer,
-	rails: railsReducer
+	rails: railsReducer,
   scheduleReducer: scheduleReducer,
 })
 

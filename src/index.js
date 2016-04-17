@@ -25,7 +25,7 @@ const routes =(
     <Route component={AppContainer} onEnter={requireAuth}>
       <Route path="/register" component={RegisterContainer} />
       <Route path="/schedule" component={ScheduleContainer} />
-      <Route path="/manage"  component={ManageContainer} onEnter={ownerOnly}/>
+      <Route path="/manage"  component={ManageContainer} />
       <Route path="/confirm"  component={ConfirmContainer}/>
       <Route path="/status"  component={StatusContainer}/>
     </Route>
@@ -74,6 +74,7 @@ function redirect(nextState, replace) {
 
 const Index = React.createClass({
   componentWillMount(){
+    console.log(actions)
     store.dispatch(actions.listenToAuth())
     store.dispatch(actions.setState())
     store.dispatch(actions.ownerCheck())

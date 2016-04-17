@@ -6,7 +6,7 @@ export default (state={}, action) => {
         checkedin:  false,
         owner_id: 1,
         current_id: 2,
-        isOwner: false
+        isOwner: true
       }
     case 'CHECKEDIN':
       return {
