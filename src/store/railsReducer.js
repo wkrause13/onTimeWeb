@@ -4,11 +4,11 @@ export default (state={}, action) => {
       return {
         confirmed:  true,
         checkedin:  false,
-        owner_id: 1,
+        owner_id: 2,
         current_id: 2,
-        isOwner: true
+        isOwner: false
       }
-    case 'CHECKEDIN':
+    case 'CHECKED_IN':
       return {
         checkedin:  true,
       }

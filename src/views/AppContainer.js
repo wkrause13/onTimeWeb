@@ -23,7 +23,7 @@ const App = React.createClass({
     let backMsg, fwdMsg, fwd, back
     const {pathname}= this.props.location
     const {childRoutes} = this.props.route
-
+    console.log(isOwner)
     switch (pathname) {
       case '/register':
         if(isOwner){

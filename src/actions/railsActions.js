@@ -6,7 +6,7 @@ const railsActions = {
   },
   checkIn(){
     return (dispatch) =>{
-      dispatch({type: 'CHECKEDIN'})
+      dispatch({type: 'CHECKED_IN'})
     }
   },
   ownerCheck(){
