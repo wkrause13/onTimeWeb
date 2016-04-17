@@ -24,6 +24,9 @@ const Login = React.createClass({
   render (){
     const {attemptLogin } = this.props
     const sites = ['twitter', 'facebook', 'google']
+
+
+
     return   (
       <div className='is-flex ' style={styles}>
          <h1 className='subtitle is-3 is-text-centered'>Sign In</h1>

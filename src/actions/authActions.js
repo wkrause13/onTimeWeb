@@ -11,18 +11,20 @@ const authActions = {
       ref.onAuth((authData)=>{
         if (authData){
 
-          let displayName
+          let displayName,profileImageURL
           if(authData.twitter){
             displayName = authData.twitter.displayName
           }else if(authData.facebook){
             displayName = authData.facebook.displayName
+            profileImageURL = authData.facebook.profileImageURL
           } else{
             displayName = authData.google.displayName
           }
 
           dispatch({
             type: 'LOGIN_USER',
-            username: displayName
+            username: displayName,
+            profileImageURL: profileImageURL,
           })
 
         } else if (getState().status !== 'ANONYMOUS'){

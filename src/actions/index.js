@@ -1,4 +1,4 @@
 import authActions from './authActions'
-import counterActions from './counterActions'
+import railsActions from './railsActions'
 
-export default Object.assign({}, authActions, counterActions)
+export default Object.assign({}, authActions, railsActions)

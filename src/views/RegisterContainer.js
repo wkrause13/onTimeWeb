@@ -12,7 +12,7 @@ export default React.createClass({
       </p>
       <p className="control has-icon">
         <input className="input" required  placeholder="Credit Card Number (no dashes or spaces)"/>
-        <i className="fa fa-credit-card"></i>
+        <i className="fa fa-cc-visa"></i>
       </p>
       <label className="subititle">Expiration Date</label>
       <div className='is-flex' style={styles.expDate}>

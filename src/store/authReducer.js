@@ -9,6 +9,7 @@ export default (state={}, action) => {
       return {
         status: 'LOGGED_IN',
         username: action.username,
+        profileImageURL:  action.profileImageURL
       }
     case 'LOGOUT':
       return {

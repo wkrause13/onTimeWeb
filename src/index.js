@@ -3,11 +3,13 @@ import {render} from 'react-dom'
 import {Router, Route, browserHistory, Link} from 'react-router'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import AppContainer from './views/AppContainer'
-import ManageContainer from './views/ManageContainer'
-import RegisterContainer from './views/RegisterContainer'
 import LoginContainer from './views/LoginContainer'
+import AppContainer from './views/AppContainer'
+import RegisterContainer from './views/RegisterContainer'
 import ScheduleContainer from './views/ScheduleContainer'
+import ManageContainer from './views/ManageContainer'
+import ConfirmContainer from './views/ConfirmContainer'
+import StatusContainer from './views/StatusContainer'
 import fourZerofour from './views/404'
 import actions from './actions'
 import store from './store'
@@ -17,12 +19,19 @@ import store from './store'
 
 const routes =(
   <Router history={browserHistory}>
+
+
     <Route path="/" component={LoginContainer} onEnter={redirect}/>
     <Route component={AppContainer} onEnter={requireAuth}>
       <Route path="/register" component={RegisterContainer} />
       <Route path="/schedule" component={ScheduleContainer} />
-      <Route path="/manage"  component={ManageContainer}/>
+      <Route path="/manage"  component={ManageContainer} onEnter={ownerOnly}/>
+      <Route path="/confirm"  component={ConfirmContainer}/>
+      <Route path="/status"  component={StatusContainer}/>
     </Route>
+
+
+
     <Route path='*' component={fourZerofour}/>
   </Router>
 )
@@ -31,10 +40,19 @@ const routes =(
 
 function requireAuth(nextState, replace) {
   const status =  store.getState().auth.status
-  console.log(status)
   if (status!=='LOGGED_IN') {
     replace({
       pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    })
+  }
+}
+
+function ownerOnly(nextState, replace) {
+  const {isOwner} =  store.getState().rails
+  if (isOwner) {
+    replace({
+      pathname: '/status',
       state: { nextPathname: nextState.location.pathname }
     })
   }
@@ -57,9 +75,8 @@ function redirect(nextState, replace) {
 const Index = React.createClass({
   componentWillMount(){
     store.dispatch(actions.listenToAuth())
-  },
-  componentWillReceiveProps() {
-    window.previousLocation = this.props.location
+    store.dispatch(actions.setState())
+    store.dispatch(actions.ownerCheck())
   },
   render (){
     return <Provider store={store}>{routes}</Provider>

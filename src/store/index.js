@@ -1,12 +1,14 @@
 import {applyMiddleware, createStore, combineReducers } from 'redux'
 import authReducer from './authReducer'
+import railsReducer from './railsReducer'
 import thunk from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form';
 
 
 const reducer = combineReducers({
 	auth: authReducer,
-  form: formReducer
+  form: formReducer,
+	rails: railsReducer
 })
 
 

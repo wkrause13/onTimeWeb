@@ -1,17 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import Attendee from '../components/Attendee'
+import actions from '../actions'
 
-const mapStateToProps = (state) => ({ auth:state.auth })
+
+const mapStateToProps = (state) => ({ auth:state.auth, rails: state.rails})
+const mapDispatchToProps= (dispatch) => ({checkIn(){
+  dispatch(actions.checkIn())
+}})
 
 const Manage = React.createClass({
   render (){
-    const {counter,onIncrement,onDecrement } = this.props
 
+    // console.log(this.props)
     return(
       <div className='is-flex' style={styles.container}>
         <div>
-          <img src="" />
+          <Attendee {...this.props}   />
         </div>
       </div>
     )
@@ -27,4 +33,4 @@ const styles = {
     flexDirection: 'row'
   }
 }
-export default connect(mapStateToProps)(Manage)
+export default connect(mapStateToProps, mapDispatchToProps)(Manage)
