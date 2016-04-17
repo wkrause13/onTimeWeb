@@ -2,6 +2,7 @@ import {applyMiddleware, createStore, combineReducers } from 'redux'
 import authReducer from './authReducer'
 import railsReducer from './railsReducer'
 import scheduleReducer from './scheduleReducer';
+import meetingsReducer from './meetingsReducer';
 import thunk from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form';
 
@@ -10,6 +11,7 @@ const reducer = combineReducers({
   form: formReducer,
 	rails: railsReducer,
   scheduleReducer: scheduleReducer,
+  meetingsReducer: meetingsReducer
 })
 
 
